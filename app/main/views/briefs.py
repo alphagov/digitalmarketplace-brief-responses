@@ -23,7 +23,6 @@ from ..forms.briefs import AskClarificationQuestionForm
 PUBLISHED_BRIEF_STATUSES = ['live', 'closed', 'awarded', 'cancelled', 'unsuccessful', 'withdrawn']
 
 APPLICATION_SUBMITTED_FIRST_MESSAGE = "Your application has been submitted."
-APPLICATION_UPDATED_MESSAGE = "Your application has been updated."
 CLARIFICATION_QUESTION_SENT_MESSAGE = "Your question has been sent. " \
                                       "The buyer will post your question and their answer on the ‘{brief[title]}’ page."
 
@@ -208,8 +207,6 @@ def edit_brief_response(brief_id, brief_response_id, question_id=None):
             if next_question_id and not edit_single_question_flow:
                 return redirect_to_next_page()
             else:
-                if edit_single_question_flow:
-                    flash(APPLICATION_UPDATED_MESSAGE, "success")
                 return redirect(
                     url_for('.check_brief_response_answers', brief_id=brief_id, brief_response_id=brief_response_id)
                 )

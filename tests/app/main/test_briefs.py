@@ -1359,7 +1359,6 @@ class TestApplyToBrief(BaseApplicationTest):
         )
         assert res.status_code == 302
         assert res.location == "http://localhost.localdomain/suppliers/opportunities/1234/responses/5/application"
-        self.assert_flashes("Your application has been updated.", "success")
 
 
 class TestCheckYourAnswers(BaseApplicationTest):
